@@ -1,23 +1,34 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
     const { t, i18n } = useTranslation();
+    const [langMenuOpen, setLangMenuOpen] = useState(false);
+    const langMenuRef = useRef(null);
 
-    const toggleLanguage = () => {
-        i18n.changeLanguage(i18n.language === 'en' ? 'de' : 'en');
+    const changeLanguage = (lng) => {
+        i18n.changeLanguage(lng);
+        setLangMenuOpen(false);
     };
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (langMenuRef.current && !langMenuRef.current.contains(event.target)) {
+                setLangMenuOpen(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
 
     return (
         <nav className="bg-gray-800">
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                 <div className="relative flex h-16 items-center justify-between">
-                    {/* Left side - logo */}
+
+                    {/* Left side - logo and nav links */}
                     <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-
-
-                        {/* Nav links */}
                         <div className="hidden sm:ml-6 sm:block">
                             <div className="flex space-x-4">
                                 <Link
@@ -54,14 +65,46 @@ const Navbar = () => {
                         </div>
                     </div>
 
-                    {/* Right side - language toggle */}
-                    <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                        <button
-                            onClick={toggleLanguage}
-                            className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white hover:bg-gray-700"
-                        >
-                            {t('Languages')}
-                        </button>
+                    {/* Right side - language dropdown only */}
+                    <div className="flex items-center space-x-4 pr-2 sm:pr-0">
+                        <div className="relative" ref={langMenuRef}>
+                            <button
+                                onClick={() => setLangMenuOpen(!langMenuOpen)}
+                                className="inline-flex items-center rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white hover:bg-gray-700"
+                                aria-haspopup="true"
+                                aria-expanded={langMenuOpen}
+                            >
+                                {t('Languages')}
+                                <svg
+                                    className="ml-2 h-4 w-4"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+
+                            {langMenuOpen && (
+                                <div className="absolute right-0 mt-2 w-32 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 z-20">
+                                    <button
+                                        onClick={() => changeLanguage('en')}
+                                        className={`block w-full px-4 py-2 text-left text-sm ${i18n.language === 'en' ? 'bg-gray-200 font-semibold' : 'hover:bg-gray-100'
+                                            }`}
+                                    >
+                                        English
+                                    </button>
+                                    <button
+                                        onClick={() => changeLanguage('de')}
+                                        className={`block w-full px-4 py-2 text-left text-sm ${i18n.language === 'de' ? 'bg-gray-200 font-semibold' : 'hover:bg-gray-100'
+                                            }`}
+                                    >
+                                        Deutsch
+                                    </button>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -70,41 +113,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
-
-
-
-
-
-
-
-
-/* import React from 'react';
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-
-const Navbar = () => {
-    const { t, i18n } = useTranslation();
-
-    const toggleLanguage = () => {
-        i18n.changeLanguage(i18n.language === 'en' ? 'de' : 'en');
-    };
-
-    return (
-        <nav className="navbar">
-            <ul>
-                <li><Link to="/">{t('nav.home')}</Link></li>
-                <li><Link to="/about">{t('nav.about')}</Link></li>
-                <li><Link to="/skills">{t('nav.skills')}</Link></li>
-                <li><Link to="/projects">{t('nav.projects')}</Link></li>
-                <li><Link to="/contact">{t('nav.contact')}</Link></li>
-            </ul>
-            <button onClick={toggleLanguage}>{t('nav.language')}</button>
-        </nav>
-    );
-};
-
-export default Navbar;
- */
