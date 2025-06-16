@@ -14,12 +14,36 @@ const projects = [
         github: "#",
         live: "#"
     },
+    {
+        title: "Multinational Museum",
+        description: "A React application developed with vite,featuring a booking component.",
+        image: hotelImg,
+        tech: ["MongoDB", "Express.js", "React", "Node.js", "Tailwind CSS"],
+        github: "#",
+        live: "#"
+    },
+    {
+        title: "Movie App",
+        description: "A full-stack hotel booking platform with user authentication, search filters, and responsive design.",
+        image: hotelImg,
+        tech: ["MongoDB", "Express.js", "React", "Node.js", "Tailwind CSS"],
+        github: "#",
+        live: "#"
+    },
+    {
+        title: "E-Commerce website",
+        description: "A full-stack hotel booking platform with user authentication, search filters, and responsive design.",
+        image: hotelImg,
+        tech: ["MongoDB", "Express.js", "React", "Node.js", "Tailwind CSS"],
+        github: "#",
+        live: "#"
+    },
     // Add more projects as needed...
 ];
 
 const Projects = () => {
     return (
-        <section className="bg-gray-900 text-white py-12 px-4 sm:px-8">
+        <section className="bg-black text-white py-12 px-4 sm:px-8">
             <div className="max-w-7xl mx-auto">
                 <h1 className="text-4xl font-bold mb-12 text-center">
                     Code. Joy. <span className="text-teal-400">Repeat.</span>
