@@ -1,29 +1,26 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import myImage from '../assets/Untitled design.png';
+import myImage from '../assets/myimg.jpg';
 
 const Home = () => {
     const { t } = useTranslation();
 
     return (
-        <section className="min-h-screen flex items-center bg-gray-50 p-8">
-            <div className="container mx-auto flex flex-col md:flex-row items-center md:items-start gap-12">
-
-                {/* Left side - image */}
-                <div className="md:w-1/2 flex justify-center">
+        <section className="bg-[#121212] text-white py-20 px-6 sm:px-12 lg:px-24 min-h-[calc(100vh-100px)] flex items-center">
+            <div className="grid md:grid-cols-2 gap-12 items-center w-full max-w-7xl mx-auto">
+                {/* Left side - rounded image */}
+                <div className="flex justify-center">
                     <img
                         src={myImage}
                         alt="My design"
-                        className="rounded-lg shadow-lg border border-gray-300 max-w-full h-auto"
+                        className="w-56 h-65 object-cover rounded-full border-4 border-teal-400 shadow-lg"
                     />
                 </div>
 
                 {/* Right side - text */}
-                <div className="md:w-1/2 text-center md:text-left">
-                    <h1 className="text-5xl font-extrabold mb-6 text-gray-900 font-serif">
-                        {t('home.title')}
-                    </h1>
-                    <p className="text-lg text-gray-700 leading-relaxed font-sans max-w-lg">
+                <div>
+                    <h1 className="text-5xl font-bold mb-6">{t('home.title')}</h1>
+                    <p className="text-lg text-gray-300 leading-relaxed">
                         {t('home.description')}
                     </p>
                 </div>
@@ -33,35 +30,3 @@ const Home = () => {
 };
 
 export default Home;
-
-
-/* import myImage from '../assets/Untitled design.png';
-
-const Home = () => (
-    <section className="min-h-screen flex items-center bg-gray-50 p-8">
-        <div className="container mx-auto flex flex-col md:flex-row items-center md:items-start gap-12">
-
-
-            <div className="md:w-1/2 flex justify-center">
-                <img
-                    src={myImage}
-                    alt="My design"
-                    className="rounded-lg shadow-lg border border-gray-300 max-w-full h-auto"
-                />
-            </div>
-
-
-            <div className="md:w-1/2 text-center md:text-left">
-                <h1 className="text-5xl font-extrabold mb-6 text-gray-900 font-serif">
-                    Welcome to My Portfolio
-                </h1>
-                <p className="text-lg text-gray-700 leading-relaxed font-sans max-w-lg">
-                    I’m a passionate interior designer, web developer, and creative spirit who loves bringing ideas to life.
-                    Every project is an opportunity to combine my technical skills and artistic vision to create something unique and meaningful.
-                </p>
-            </div>
-        </div>
-    </section>
-);
-
-export default Home; */
