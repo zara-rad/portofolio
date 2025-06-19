@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
         <>
-            <footer className="bg-gray-900 text-white">
+            <footer className="bg-black text-white">
                 <div className="container mx-auto px-4 py-12 flex justify-center">
                     <div>
                         <ul className="space-y-2 text-center">
