@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const skills = [
     { name: "HTML", logo: "/html.png" },
@@ -11,12 +12,18 @@ const skills = [
 
 const SkillMarquee = () => {
     return (
-        <section className="bg-black py-12">
-            <h2 className="text-4xl sm:text-7xl text-white font-bold mb-10 text-center">
+        <section className="bg-black py-16 px-4">
+            <h2 className="text-4xl sm:text-6xl text-white font-bold mb-10 text-center">
                 My Tech Stack
             </h2>
 
-            <div className="flex flex-wrap justify-center gap-6 sm:gap-10 px-4">
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                viewport={{ once: true }}
+                className="flex flex-wrap justify-center gap-6 sm:gap-10"
+            >
                 {skills.map((skill, index) => (
                     <div
                         key={index}
@@ -27,20 +34,14 @@ const SkillMarquee = () => {
                             alt={skill.name}
                             className="h-10 w-10 sm:h-14 sm:w-14 mb-2"
                         />
-                        <p className="text-white text-xs sm:text-sm text-center">{skill.name}</p>
+                        <p className="text-white text-xs sm:text-sm text-center">
+                            {skill.name}
+                        </p>
                     </div>
                 ))}
-            </div>
+            </motion.div>
         </section>
     );
 };
 
 export default SkillMarquee;
-
-
-
-
-
-
-
-

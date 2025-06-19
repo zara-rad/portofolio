@@ -6,7 +6,7 @@ const Home = () => {
     const { t } = useTranslation();
 
     return (
-        <section className="bg-[#121212] text-white py-20 px-6 sm:px-12 lg:px-24 min-h-[calc(100vh-100px)] flex items-center">
+        <section className="bg-black text-white py-20 px-6 sm:px-12 lg:px-24 min-h-[calc(100vh-100px)] flex items-center">
             <div className="grid md:grid-cols-2 gap-12 items-center w-full max-w-7xl mx-auto">
                 {/* Left side - rounded image */}
                 <div className="flex justify-center">

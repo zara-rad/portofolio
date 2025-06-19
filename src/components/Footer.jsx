@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
         <>
-            <footer className="bg-black text-white">
+            <footer className="bg-black text-white py-6 px-4">
                 <div className="container mx-auto px-4 py-12 flex justify-center">
                     <div>
                         <ul className="space-y-2 text-center">
@@ -15,18 +15,10 @@ export default function Footer() {
                             </li>
                             <li>
                                 <a
-                                    href="/contact"
+                                    href="/about"
                                     className="text-gray-300 hover:text-[#8E7037] transition-colors"
                                 >
-                                    Contact
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/skills"
-                                    className="text-gray-300 hover:text-[#8E7037] transition-colors"
-                                >
-                                    Skills
+                                    About
                                 </a>
                             </li>
                             <li>
@@ -37,6 +29,16 @@ export default function Footer() {
                                     Projects
                                 </a>
                             </li>
+                            <li>
+                                <a
+                                    href="/contact"
+                                    className="text-gray-300 hover:text-[#8E7037] transition-colors"
+                                >
+                                    Contact
+                                </a>
+                            </li>
+
+
                         </ul>
                     </div>
                 </div>

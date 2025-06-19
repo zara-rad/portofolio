@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { LightBulbIcon, ChartBarIcon, UsersIcon } from "@heroicons/react/24/outline";
 import { useTranslation } from "react-i18next";
-import SkillMarquee from "../components/SkillMarquee"; // Optional
+import SkillMarquee from "../components/SkillMarquee";
 
 const About = () => {
     const { t } = useTranslation();
@@ -9,8 +9,7 @@ const About = () => {
     const letters = t("smarter").split("");
 
     return (
-        <section className="mt-10 py-16 px-4 sm:px-6 lg:px-20 bg-black text-white">
-            {/* Animated Header */}
+        <section className=" py-16 px-4 sm:px-6 lg:px-20 bg-black text-white">
             <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-10 flex flex-wrap gap-3 items-center">
                 <span className="text-gray-400">{t("code")}</span>
                 <motion.span
@@ -42,7 +41,6 @@ const About = () => {
                 </motion.span>
             </h2>
 
-            {/* Paragraph & Image */}
             <div className="flex flex-col lg:flex-row items-start gap-8">
                 <div className="flex-1">
                     <p className="text-gray-400 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-justify max-w-5xl">
@@ -58,7 +56,6 @@ const About = () => {
                 </div>
             </div>
 
-            {/* Subheading */}
             <h1 className="mt-10 text-white text-4xl sm:text-8xl font-bold flex flex-wrap gap-2 items-center">
                 {t("idea")}
                 <motion.span
@@ -91,7 +88,6 @@ const About = () => {
                 {t("executed")}
             </h1>
 
-            {/* Icons & Cards */}
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -99,7 +95,6 @@ const About = () => {
                 viewport={{ once: true }}
                 className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8"
             >
-                {/* Design */}
                 <div className="bg-gray-800 p-4 rounded-2xl">
                     <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4 flex items-center gap-4">
                         <LightBulbIcon className="h-10 w-10 text-teal-400" />
@@ -110,7 +105,6 @@ const About = () => {
                     </p>
                 </div>
 
-                {/* Results */}
                 <div className="bg-gray-800 p-4 rounded-2xl">
                     <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4 flex items-center gap-4">
                         <ChartBarIcon className="h-10 w-10 text-teal-400" />
@@ -120,8 +114,6 @@ const About = () => {
                         {t("resultsText")}
                     </p>
                 </div>
-
-                {/* Collaboration */}
                 <div className="bg-gray-800 p-4 rounded-2xl">
                     <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4 flex items-center gap-4">
                         <UsersIcon className="h-10 w-10 text-teal-400" />
@@ -132,8 +124,6 @@ const About = () => {
                     </p>
                 </div>
             </motion.div>
-
-            {/* Optional: Skill Marquee */}
             <SkillMarquee />
         </section>
     );
