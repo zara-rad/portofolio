@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import { useTranslation } from 'react-i18next';
 
@@ -19,7 +18,7 @@ const Projects = () => {
             description: t("projects.museum.description"),
             image: "/museum.png",
             tech: ["React", "Framer Motion", "Sanity CMS", "Tailwind CSS"],
-            github: "#",
+            github: "https://github.com/zara-rad/museum-website",
             live: "https://museumsphere.netlify.app/"
         },
         {

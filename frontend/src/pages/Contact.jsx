@@ -47,7 +47,6 @@ export default function Contact() {
     return (
         <section className="bg-black text-white py-20 px-6 sm:px-12 lg:px-24 ">
             <div className="grid md:grid-cols-2 gap-12 items-start">
-                {/* Contact Info */}
                 <div>
                     <h2 className="text-5xl font-bold mb-4">{t("contact.title")}</h2>
                     <p className="text-gray-400 mb-8">{t("contact.subtitle")}</p>
