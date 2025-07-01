@@ -26,11 +26,24 @@ app.post("/api/contact", async (req, res) => {
         });
 
         const mailOptions = {
-            from: email,
+            from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
             to: process.env.EMAIL_USER,
+            replyTo: `"${name}" <${email}>`,
             subject: `New Contact Message from ${name}`,
-            text: message,
+            text: `You received a new message from your portfolio:
+          
+          Name: ${name}
+          Email: ${email}
+          Message:
+          ${message}`,
+            html: `
+              <h3>New Contact Message</h3>
+              <p><strong>Name:</strong> ${name}</p>
+              <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+              <p><strong>Message:</strong><br>${message.replace(/\n/g, "<br>")}</p>
+            `,
         };
+
 
         await transporter.sendMail(mailOptions);
 
