@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import myImage from '../assets/myimg.jpg';
+import myImage from '../assets/no-back.png';
 
 const Home = () => {
     const { t } = useTranslation();
@@ -12,7 +12,7 @@ const Home = () => {
                     <img
                         src={myImage}
                         alt="My design"
-                        className="w-130 h-130 object-cover rounded-full  shadow-lg"
+                        className="w-130 h-130 object-cover  shadow-lg"
                     />
                 </div>
                 <div>
