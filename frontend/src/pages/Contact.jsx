@@ -27,7 +27,8 @@ export default function Contact() {
         const message = formData.get("message");
 
         try {
-            const res = await fetch("http://localhost:5002/api/contact", {
+            /* http://localhost:5002 */
+            const res = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name, email, message, token: captchaValue }),

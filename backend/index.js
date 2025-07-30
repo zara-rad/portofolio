@@ -8,6 +8,8 @@ dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(express.static("public"));
+
 
 app.post("/api/contact", async (req, res) => {
     const { name, email, message, token } = req.body;
