@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-/* import ReCAPTCHA from "react-google-recaptcha"; */
 import {
     FaEnvelope,
     FaPhone,
@@ -11,15 +10,11 @@ import { useTranslation } from "react-i18next";
 
 export default function Contact() {
     const { t } = useTranslation();
-    /*     const [captchaValue, setCaptchaValue] = useState(null);
-     */
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        /*  if (!captchaValue) {
-             alert(t("contact.pleaseCompleteCaptcha"));
-             return;
-         } */
+
 
         const formData = new FormData(e.target);
         const name = formData.get("name");
@@ -27,7 +22,7 @@ export default function Contact() {
         const message = formData.get("message");
 
         try {
-            /* http://localhost:5002 */
+
             const res = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -38,7 +33,7 @@ export default function Contact() {
             if (!res.ok) throw new Error(data.error || "Something went wrong");
 
             alert(data.message);
-            /*  setCaptchaValue(null); */
+
             e.target.reset();
         } catch (error) {
             alert(`${t("contact.error")}: ${error.message}`);
@@ -116,12 +111,7 @@ export default function Contact() {
                         className="w-full bg-transparent border-b border-gray-600 py-2 outline-none placeholder:text-gray-400"
                         required
                     />
-                    {/*  <ReCAPTCHA
-                        sitekey="6LdkFEorAAAAAPbSgRp4rKXD3S9mPVh48e-DRCgF"
-                        onChange={setCaptchaValue}
-                        onExpired={() => setCaptchaValue(null)}
-                        className="mt-6"
-                    /> */}
+
                     <button
                         type="submit"
                         className="mt-4 px-6 py-2 border border-gray-400 rounded-full hover:bg-teal-600 hover:border-teal-600 transition"

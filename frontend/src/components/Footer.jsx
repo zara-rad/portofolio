@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
     return (
         <>
@@ -6,36 +8,36 @@ export default function Footer() {
                     <div>
                         <ul className="space-y-2 text-center">
                             <li>
-                                <a
-                                    href="/"
+                                <Link
+                                    to="/"
                                     className="text-gray-300 hover:text-[#8E7037] transition-colors"
                                 >
                                     Home
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a
-                                    href="/about"
+                                <Link
+                                    to="/about"
                                     className="text-gray-300 hover:text-[#8E7037] transition-colors"
                                 >
                                     About
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a
-                                    href="/projects"
+                                <Link
+                                    to="/projects"
                                     className="text-gray-300 hover:text-[#8E7037] transition-colors"
                                 >
                                     Projects
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a
-                                    href="/contact"
+                                <Link
+                                    to="/contact"
                                     className="text-gray-300 hover:text-[#8E7037] transition-colors"
                                 >
                                     Contact
-                                </a>
+                                </Link>
                             </li>
 
 
