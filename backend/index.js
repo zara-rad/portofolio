@@ -12,9 +12,9 @@ app.use(express.static("public"));
 
 
 app.post("/api/contact", async (req, res) => {
-    const { name, email, message, token } = req.body;
+    const { name, email, message/* , token  */ } = req.body;
 
-    if (!name || !email || !message || !token) {
+    if (!name || !email || !message /* || !token */) {
         return res.status(400).json({ error: "Missing required fields" });
     }
 
