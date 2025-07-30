@@ -42,7 +42,7 @@ const Projects = () => {
             description: t("projects.portofoilio.description"),
             image: "/portofoilio.png",
             tech: ["React", "Framer Motion", "nodemailer", "Tailwind CSS"],
-            github: "https://github.com/zara-rad/Portofoilio",
+            github: "https://portofolio-1-8ayq.onrender.com",
             live: "#"
         }
     ];
